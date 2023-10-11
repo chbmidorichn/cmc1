@@ -3,204 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formatted Date</title>
+    <title>Text Rows Example</title>
 
 <link href="https://fonts.google.com/specimen/M+PLUS+1" rel="stylesheet">
+<link href="https://fonts.google.com/specimen/Short+Stack" rel="stylesheet">
     
     <style>
 
-        /*CSS RESETS*/
-
 body{
     background-color: #000;
-    line-height: 1.6;
 
 }
+        /* Apply CSS styles for the rows and characters */
+        .text-row {
+            width: 35px;
+            display: flex;
+            justify-content: space-between; /* Evenly space characters */
+align-items: flex-start;
+        }
 
-h1 {
-    margin-top: 0;
-}
+        /* Apply additional styles as needed */
+        .text {
+            font-size: 24px;
+color: white;
+        }
 
-
-/*CSS START*/
-
-        #template-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('IMG_3096.png'); /* Replace with your image file */
-   background-repeat: no-repeat; /* Prevent image repetition */
-    background-position: center top; /* Center the image horizontally and place it at the top */
-    background-size: contain; /* Resize the image to fit within the container */
-    opacity: 0.5; /* Adjust the opacity as needed */
-    z-index: -1; /* Place the template behind other content */
-}
-
-/* Rest of your CSS styles */
-
-#date-container {
-    text-align: center;
-    font-size: 24px;
-    color: #333;
-}
-
-input {
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    color: #fff;
-    margin: 5px;
-}
-
-/* Style the day name elements with class "day-name" */
-.day-name {
-    font-family: 'Roboto', sans-serif; /* Replace 'Font1' with your desired font */
-    font-size: 24px; /* Adjust the font size as needed */
-    font-weight: bold;
-color: white; /* Set text color to white */
-    background: none; /* Remove background color */
-    border: none; /* Remove border */
-padding: 5px 2px;
+#day-name {
+font-family: 'M PLUS 1', sans-serif;
+font-weight: 700;
 text-transform: uppercase;
 }
 
-/* Adjust the margin to control the gap between day name textboxes */
-#day-letter-2 {
-    margin-left: 5px; /* Adjust the left margin for spacing */
+#year {
+font-family: 'M PLUS 1', sans-serif;
+font-weight: 200;
 }
 
-/* Style the year elements with class "year" */
-.year {
-    font-family: 'Font2', sans-serif; /* Replace 'Font2' with your desired font */
-    font-size: 24px; /* Adjust the font size as needed */
-    font-weight: normal; /* You can adjust font-weight as needed */
-color: white; /* Set text color to white */
-    background: none; /* Remove background color */
-    border: none; /* Remove border */
-padding: 5px 1px;
-
+#date {
+font-family: 'M PLUS 1', sans-serif;
+font-weight: 400;
+font-size: 17px;
+text-transform: uppercase;
 }
 
-/* Adjust the margin to control the gap between year textboxes */
-#year-1, #year-2 {
-    margin-right: 1px; /* Adjust the right margin as needed */
+
+#time {
+font-family: 'M PLUS 1', sans-serif;
+font-weight: 400;
+font-size: 20px;
 }
 
-#year-3, #year-4 {
-    margin-left: 1px; /* Adjust the left margin as needed */
-}
 
-/* Style the month and day elements with class "month-day" */
-.month {
-    font-family: 'Font3', sans-serif; /* Replace 'Font3' with your desired font */
-    font-size: 25px; /* Adjust the font size as needed */
-    font-weight: bold; /* You can adjust font-weight as needed */
-color: white; /* Set text color to white */
-    background: none; /* Remove background color */
-    border: none; /* Remove border */
-letter-spacing: -25px; /* Adjust the value as needed */
-}
+        /* Style for the separator */
+        .separator {
+color: white;
+            margin: 0 5px; /* Add space around the separator */
+        }
 
-/* Style the month and day elements with class "month-day" */
-.day {
-    font-family: 'Font3', sans-serif; /* Replace 'Font3' with your desired font */
-    font-size: 25px; /* Adjust the font size as needed */
-    font-weight: bold; /* You can adjust font-weight as needed */
-color: white; /* Set text color to white */
-    background: none; /* Remove background color */
-    border: none; /* Remove border */
-letter-spacing: -25px; /* Adjust the value as needed */
-}
+        /* Style for AM/PM */
+        .ampm {
+font-family: 'M PLUS 1', sans-serif;
+font-weight: 700;
+            color: white;
+        }
 
-/* Style the separator element with class "separator" */
-.separator {
-    font-size: 20px; /* Adjust the font size for the separator */
-color: white; /* Set text color to white */
-    background: none; /* Remove background color */
-    border: none; /* Remove border */
-padding: 0;
-}
-
-/* Adjust the margin to control the gap between month, separator, and day textboxes */
-#month-2 {
-    margin-right: 2px; /* Smaller right margin before the separator */
-}
-
-#separator {
-    margin: 0px; /* Adjust the margin before and after the separator */
-}
-
-#day-1 {
-    margin-left: 2px; /* Smaller left margin after the separator */
-}
-
+        /* Style for seconds */
+        .seconds {
+font-family: 'M PLUS 1', sans-serif;
+font-weight: 300;
+            color: light gray;
+font-size: 15px;
+        }
     </style>
 </head>
 <body>
-    <div id="template-container">
-        <!-- Your textboxes go here -->
+    <!-- Row 1: Day Name -->
+    <div class="text-row">
+        <span class="text" id="day-name">Mon</span>
     </div>
-    
-<div id="date-container">
-    <input type="text" id="day-letter-1" class="day-name" readonly>
-    <input type="text" id="day-letter-2" class="day-name" readonly>
-    <input type="text" id="day-letter-3" class="day-name" readonly>
-    <br>
-    <input type="text" id="year-1" class="year" readonly>
-    <input type="text" id="year-2" class="year" readonly>
-    <input type="text" id="year-3" class="year" readonly>
-    <input type="text" id="year-4" class="year" readonly>
-    <br>
-    <input type="text" id="month-1" class="month" readonly>
-    <input type="text" id="month-2" class="month" readonly>
-    <input type="text" id="separator" class="separator" readonly value="・">
-    <input type="text" id="day-1" class="day" readonly>
-    <input type="text" id="day-2" class="day" readonly>
-</div>
 
-<script>
-const dayLetter1 = document.getElementById('day-letter-1');
-const dayLetter2 = document.getElementById('day-letter-2');
-const dayLetter3 = document.getElementById('day-letter-3');
-const year1 = document.getElementById('year-1');
-const year2 = document.getElementById('year-2');
-const year3 = document.getElementById('year-3');
-const year4 = document.getElementById('year-4');
-const month1 = document.getElementById('month-1');
-const month2 = document.getElementById('month-2');
-const separator = document.getElementById('separator');
-const day1 = document.getElementById('day-1');
-const day2 = document.getElementById('day-2');
+    <!-- Row 2: Year -->
+    <div class="text-row">
+        <span class="text" id="year">2023</span>
+    </div>
 
-// Get the current date
-const currentDate = new Date();
+    <!-- Row 3: Date -->
+    <div class="text-row">
+        <span class="text" id="date"> MMM dd</span>
+    </div>
 
-// Get the day name (first three letters)
-const dayName = currentDate.toLocaleDateString('en-US', { weekday: 'short' });
+<br><br><br>
 
-// Get the year, month, and day
-const year = currentDate.getFullYear();
-const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
-const day = currentDate.getDate().toString().padStart(2, '0');
+    <!-- Row 4: Time -->
+    <div class="text-row">
+        <span class="text" id="time">hh:mm</span>
+    </div>
 
-// Set the content of the textboxes
-dayLetter1.value = dayName[0];
-dayLetter2.value = dayName[1];
-dayLetter3.value = dayName[2];
-year1.value = year.toString()[0];
-year2.value = year.toString()[1];
-year3.value = year.toString()[2];
-year4.value = year.toString()[3];
-month1.value = month[0];
-month2.value = month[1];
-day1.value = day[0];
-day2.value = day[1];
-// END
-</script>
+    <!-- Row 5: AM/PM and Seconds -->
+    <div class="text-row">
+        <span class="text ampm" id="ampm">AM</span>
+        <span class="text seconds" id="seconds">00</span>
+    </div>
 
+    <!-- Include the JavaScript code -->
+    <script>
+        // Function to update the date and time
+        function updateDateTime() {
+            const now = new Date();
+
+            // Update day name
+            const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+            const dayName = dayNames[now.getDay()];
+            document.getElementById("day-name").textContent = dayName;
+
+            // Update year
+            const year = now.getFullYear();
+            document.getElementById("year").textContent = year;
+
+           // Update month and day in "MMM dd" format
+const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const monthAbbreviation = months[now.getMonth()];
+const day = String(now.getDate()).padStart(2, "0");
+document.getElementById("date").textContent = `${monthAbbreviation}${day}`;
+
+            // Update time in "hh:mm" format
+            const hours = String(now.getHours()).padStart(2, "0");
+            const minutes = String(now.getMinutes()).padStart(2, "0");
+            document.getElementById("time").textContent = `${hours}:${minutes}`;
+
+            // Update AM/PM and seconds
+            const ampm = now.getHours() >= 12 ? "PM" : "AM";
+            const seconds = String(now.getSeconds()).padStart(2, "0");
+            document.getElementById("ampm").textContent = ampm;
+            document.getElementById("seconds").textContent = seconds;
+        }
+
+        // Call the function to update date and time immediately and every second
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+    </script>
 </body>
 </html>
