@@ -1,0 +1,102 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css');
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+1');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
+
+* {
+  font-family: {{fontName}}, sans-serif;
+    color: {{fontColor}};
+    overflow: hidden;
+    font-weight: {{fontWeight}};
+    text-shadow:{textShadow};
+  	scroll-behavior: smooth;
+}
+
+
+.main-container{
+  position: relative;
+    display:{{alignMessages}};
+    height:98%;
+    flex-direction: column;
+    justify-content: flex-end;
+  	text-align: left;
+}
+
+.user-image {
+    width: 40px;
+    height: 40px; 
+    margin-right: 2px; 
+}
+
+.user-box{
+  	position: absolute;
+  	background-color: {{userbackgroundColor}};
+  	border-radius: 2px;
+  	font-family: 'M Plus 1', sans-serif;
+    font-size: {{fontSize}}px;
+	text-transform: lowercase;
+  	top: 2%;
+  	padding: 1px;
+  	margin-top: auto;
+  	margin-bottom: 5px;
+    left: {{sliderNickname}}%;
+  	font-weight: 600;
+  	text-align: left;
+  	box-shadow: 0 0 1px 2px {{outlineColor}};
+  z-index: 99;
+}
+
+.user-box > span{
+    font-size:15px;
+  	font-weight: 300;
+  	text-align: left;
+}
+
+
+.badge{
+  display:{{badgesVisibility}};
+    height:{{fontSize}}px;
+  	
+}
+
+.message-row{
+  	position:relative;
+  	flex: 0 0 auto;
+    width:380px;
+  	height: auto;
+    vertical-align: baseline;
+  	margin-right: 2px;
+  	margin-bottom: 5px;
+  	border-radius: 1px;
+  	padding-top: 15px;
+  	padding-bottom: 3px;
+  	padding-left: 12px;
+  	padding-right: 12px;
+  	text-align: left;
+  word-wrap: break-word;
+}
+
+
+.user-message{
+  	font-family: {{fontName}}, sans-serif;
+    font-size:{{fontSize}}px;
+  	background-color: {{messagebackgroundColor}};
+  	border-radius: 1px;
+  	height: auto;
+    box-shadow: 0 0 0 0px #e1e1e1;
+  	display:inline-block;
+  	padding: 5px 5px 10px;
+  	top: 5.5%;
+  	width:85%;
+  	position: relative;
+  	
+}
+
+.emote{
+    height: {emoteSize}px;
+    vertical-align: middle;
+    background-repeat:no-repeat;
+}
+
+.action{
+    font-style: italic;
+}
