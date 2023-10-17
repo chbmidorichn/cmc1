@@ -11,38 +11,43 @@
     <style>
 
 body{
-    background-color: #000;
+    background-color: transparent;
 
 }
         /* Apply CSS styles for the rows and characters */
-        .text-row {
-            width: 35px;
-            display: flex;
-            justify-content: space-between; /* Evenly space characters */
-align-items: flex-start;
-        }
+       .text-row {
+    width: 50px;
+    display: flex;
+    justify-content: space-between;
+    text-align: justify; /* Justify the text within the row */
+}
 
         /* Apply additional styles as needed */
         .text {
-            font-size: 24px;
-color: white;
-        }
+           font-size: 24px;
+    color: white;
+    letter-spacing: 1px; /* Adjust letter-spacing as needed */
+    word-spacing: -1px; /* Adjust word-spacing as needed */
+}
 
 #day-name {
 font-family: 'M PLUS 1', sans-serif;
 font-weight: 700;
+font-size: 35px;
 text-transform: uppercase;
+ letter-spacing: 7px; /* ADJUST THIS EVERY TIME THE DAY CHANGES!!! */
 }
 
 #year {
 font-family: 'M PLUS 1', sans-serif;
 font-weight: 200;
+font-size: 32px;
 }
 
 #date {
 font-family: 'M PLUS 1', sans-serif;
 font-weight: 400;
-font-size: 17px;
+font-size: 22px;
 text-transform: uppercase;
 }
 
@@ -50,7 +55,7 @@ text-transform: uppercase;
 #time {
 font-family: 'M PLUS 1', sans-serif;
 font-weight: 400;
-font-size: 20px;
+font-size: 28px;
 }
 
 
@@ -64,6 +69,7 @@ color: white;
         .ampm {
 font-family: 'M PLUS 1', sans-serif;
 font-weight: 700;
+font-size: 34px;
             color: white;
         }
 
@@ -72,7 +78,7 @@ font-weight: 700;
 font-family: 'M PLUS 1', sans-serif;
 font-weight: 300;
             color: light gray;
-font-size: 15px;
+font-size: 19px;
         }
     </style>
 </head>
@@ -92,7 +98,7 @@ font-size: 15px;
         <span class="text" id="date"> MMM dd</span>
     </div>
 
-<br><br><br>
+<br><br><br><br>
 
     <!-- Row 4: Time -->
     <div class="text-row">
@@ -126,10 +132,13 @@ const monthAbbreviation = months[now.getMonth()];
 const day = String(now.getDate()).padStart(2, "0");
 document.getElementById("date").textContent = `${monthAbbreviation}${day}`;
 
-            // Update time in "hh:mm" format
-            const hours = String(now.getHours()).padStart(2, "0");
-            const minutes = String(now.getMinutes()).padStart(2, "0");
-            document.getElementById("time").textContent = `${hours}:${minutes}`;
+
+// Update time in 12-hour format (hh:mm)
+    const hours = now.getHours();
+    const twelveHourFormat = (hours % 12) || 12; // Handle midnight (0) as 12
+   const hoursWithLeadingZero = String(twelveHourFormat).padStart(2, "0");
+    const minutes = String(now.getMinutes()).padStart(2, "0");
+    document.getElementById("time").textContent = `${hoursWithLeadingZero}:${minutes}`;
 
             // Update AM/PM and seconds
             const ampm = now.getHours() >= 12 ? "PM" : "AM";
