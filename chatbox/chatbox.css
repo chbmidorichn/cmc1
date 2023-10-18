@@ -1,6 +1,6 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css');
-@import url('https://fonts.googleapis.com/css?family=M+PLUS+1');
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
+@import url('https://fonts.googleapis.com/css?family=Bayon');
+@import url('https://fonts.googleapis.com/css?family=Zen+Kaku+Gothic+New');
 
 * {
   font-family: {{fontName}}, sans-serif;
@@ -22,31 +22,32 @@
 }
 
 .user-image {
-    width: 40px;
-    height: 40px; 
-    margin-right: 2px; 
+    width: 80px;
+    height: 80px; 
+    margin-right: 4px; 
 }
 
 .user-box{
   	position: absolute;
   	background-color: {{userbackgroundColor}};
-  	border-radius: 2px;
-  	font-family: 'M Plus 1', sans-serif;
+  	border-radius: 4px;
+  	font-family: 'Bayon', sans-serif;
     font-size: {{fontSize}}px;
 	text-transform: lowercase;
   	top: 2%;
-  	padding: 1px;
+  	padding: 2px;
   	margin-top: auto;
-  	margin-bottom: 5px;
+  	margin-bottom: 10px;
     left: {{sliderNickname}}%;
   	font-weight: 600;
   	text-align: left;
-  	box-shadow: 0 0 1px 2px {{outlineColor}};
+  	box-shadow: 0 0 2px 4px {{outlineColor}};
   z-index: 99;
 }
 
 .user-box > span{
-    font-size:15px;
+  	font-family: 'Bayon', sans-serif;
+    font-size: 30px;
   	font-weight: 300;
   	text-align: left;
 }
@@ -61,16 +62,16 @@
 .message-row{
   	position:relative;
   	flex: 0 0 auto;
-    width:380px;
+    width: 850px;
   	height: auto;
     vertical-align: baseline;
-  	margin-right: 2px;
-  	margin-bottom: 5px;
-  	border-radius: 1px;
-  	padding-top: 15px;
-  	padding-bottom: 3px;
-  	padding-left: 12px;
-  	padding-right: 12px;
+  	margin-right: 4px;
+  	margin-bottom: 10px;
+  	border-radius: 2px;
+  	padding-top: 30px;
+  	padding-bottom: 6px;
+  	padding-left: 24px;
+  	padding-right: 24px;
   	text-align: left;
   word-wrap: break-word;
 }
@@ -84,7 +85,7 @@
   	height: auto;
     box-shadow: 0 0 0 0px #e1e1e1;
   	display:inline-block;
-  	padding: 5px 5px 10px;
+  	padding: 10px 10px 20px;
   	top: 5.5%;
   	width:85%;
   	position: relative;
